@@ -3,6 +3,7 @@
     <g class="scrap-pile">
 
         <rect
+            v-if="inRange"
             class="interact"
             :x="interactDimensions.x"
             :y="interactDimensions.y"
@@ -15,6 +16,14 @@
             :y="y * 100 + '%'"
             :width="width * 100 + '%'"
             :height="height * 100 + '%'"/>
+
+        <text
+            v-if="inRange"
+            :x="(x  + width * 0.5) * 100 + '%'"
+            :y="(y - 0.02) * 100 + '%'">
+            hold [SPACE] to mine
+        </text>
+
     </g>
 
 </template>
@@ -23,6 +32,11 @@
 import { contains } from '@/utils'
 
 export default {
+    data() {
+        return {
+            inRange: false
+        }
+    },
     props: {
         x: {
             type: Number,
@@ -43,6 +57,10 @@ export default {
         interactZone: {
             type: Number,
             default: 0.5
+        },
+        scrap: {
+            type: Number,
+            default: 20
         }
     },
     computed: {
@@ -93,6 +111,11 @@ g.scrap-pile {
     .item {
         stroke: $white;
         stroke-width: 2px;
+    }
+
+    text {
+        text-anchor: middle;
+        fill: $white;
     }
 }
 </style>
