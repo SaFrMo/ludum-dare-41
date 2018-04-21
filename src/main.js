@@ -16,6 +16,11 @@ Vue.component(
     require('@/components/PlayerCharacter').default
 )
 Vue.component('scrap-pile', require('@/components/ScrapPile').default)
+Vue.component('home-base', require('@/components/HomeBase').default)
+Vue.component(
+    'interaction-zone',
+    require('@/components/InteractionZone').default
+)
 
 // Directives
 Vue.directive('full-height', require('fh-components/v-full-height'))

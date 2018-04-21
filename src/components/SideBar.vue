@@ -7,7 +7,7 @@
         <ul class="stats">
 
             <li class="row">
-                <bar-graph :current="40"/>
+                <bar-graph :current="$store.state.health"/>
                 <span class="label">HP</span>
             </li>
 

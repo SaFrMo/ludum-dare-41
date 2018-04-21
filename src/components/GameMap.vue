@@ -6,8 +6,10 @@
         preserveAspectRatio="none"
         :view-box.camel="cmpViewBox">
 
+        <!-- <home-base/> -->
+
         <g class="map-items">
-            <scrap-pile/>
+            <scrap-pile x="0.5" y="0.5"/>
         </g>
 
         <player-character/>
