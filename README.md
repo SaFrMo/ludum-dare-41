@@ -44,6 +44,15 @@ The player, in order to bypass their faulty circuits, will need to answer trivia
 1.  < 15 - clock, enemies, enemy type B
 1.  15+ - exit atmosphere
 
+### Roadmap
+
+*   Set up so player can complete first day
+*   Create shop
+*   Create structure for more days
+*   Create enemies
+*   Graphics
+*   Music/SFX
+
 ## Credits
 
 **Trivia Questions**: Open Trivia Database, https://opentdb.com/
