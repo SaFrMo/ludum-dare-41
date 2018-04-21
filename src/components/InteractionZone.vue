@@ -12,7 +12,7 @@
         <text
             v-if="text && inRange"
             :x="cmpTextX"
-            :y="(y - 0.02) * 100 + '%'">
+            :y="(y - height) * 100 + '%'">
             {{ text }}
         </text>
     </g>
@@ -127,3 +127,17 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@import 'src/styles/vars';
+
+g.interaction-zone {
+    rect {
+        fill: $interaction;
+    }
+    text {
+        fill: $white;
+        text-anchor: middle;
+    }
+}
+</style>

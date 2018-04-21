@@ -31,6 +31,8 @@
 
         <h3 class="goal">{{ $store.state.objective }}</h3>
 
+        <scrap-holder/>
+
         <div class="criticals">
             <!-- <h3 class="label">Criticals</h3> -->
 
@@ -152,6 +154,11 @@ aside.sidebar {
         line-height: 1;
         border-left: 1px dotted;
         padding-left: $desktop-padding;
+    }
+
+    // scrap holder
+    .scrap-holder {
+        margin: 20px;
     }
 
     // criticals

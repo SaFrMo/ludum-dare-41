@@ -64,7 +64,9 @@ export default {
     },
     methods: {
         onInteract() {
-            this.value -= this.$store.state.dps * 0.1
+            const delta = this.$store.state.dps * 0.1
+            this.value -= delta
+            this.$store.commit('INCREASE_LOAD', delta)
         }
     }
 }
