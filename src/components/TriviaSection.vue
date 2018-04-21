@@ -19,7 +19,19 @@
                 <h4 v-else class="wrong heading">Wrong!</h4>
 
                 <div class="secondary">
-                    <p class="bonus" v-if="lastCorrect">(stat bonus)</p>
+                    <div class="bonus" v-if="lastCorrect">
+
+                        <div class="boost-wrap" v-if="!boostPicked">
+                            <h5>Choose a skill to improve:</h5>
+                            <button @click="boost('speed')">Speed</button>
+                            <button @click="boost('carry weight')">Carry Weight</button>
+                            <button @click="boost('attack power')">Attack Power</button>
+                        </div>
+
+                        <div class="boost-summary" v-else>
+                            Max {{ boostPicked }} increased!
+                        </div>
+                    </div>
 
                     <p>Question: <span v-html="cmpQuestion.question"/></p>
                     <p>Answer: <span v-html="cmpQuestion.correct_answer"/></p>
@@ -44,7 +56,8 @@ export default {
             trivia,
             timeLeft: 0,
             interval: null,
-            lastCorrect: null
+            lastCorrect: null,
+            boostPicked: false
         }
     },
     methods: {
@@ -54,8 +67,7 @@ export default {
         answerClicked(answer) {
             if (this.cmpQuestion.correct_answer == answer) {
                 this.lastCorrect = true
-
-                // TODO: Award stat bonus
+                this.boostPicked = false
             } else {
                 this.lastCorrect = false
             }
@@ -69,10 +81,15 @@ export default {
             if (this.timeLeft > 0) {
                 this.timeLeft -= 0.1
             } else {
-                this.newQuestion()
+                //this.newQuestion()
                 this.$store.commit('UNLOCK_TRIVIA')
                 clearInterval(this.interval)
             }
+        },
+        boost(skill) {
+            console.log(skill)
+
+            this.boostPicked = skill
         }
     },
     computed: {
@@ -145,6 +162,36 @@ section.trivia {
             margin: 0 10px 20px;
         }
 
+        // boost
+        .boost-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+
+            h5 {
+                margin: 10px 0 20px;
+                text-align: center;
+                font-size: 1em;
+                width: 100%;
+            }
+            button {
+                background-color: $white;
+                color: $black;
+                width: calc(100% / 3);
+                padding: 5px;
+                box-sizing: border-box;
+                border: 2px dotted $black;
+
+                &:hover,
+                &:focus {
+                    background-color: $black;
+                    color: $white;
+                    border: 2px dotted $white;
+                }
+            }
+        }
+
+        // timer to unlock
         .locked {
             margin: 0 10px 10px;
             display: block;
