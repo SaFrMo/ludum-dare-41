@@ -29,13 +29,13 @@
                 <li class="row">
                     <span class="key">Max Speed (m/s)</span>
                     <span class="value">
-                        <span class="number">10.5</span>
+                        <span class="number">{{ cmpMaxSpeed }}</span>
                     </span>
                 </li>
                 <li class="row">
                     <span class="key">Carry Weight (kg)</span>
                     <span class="value">
-                        <span class="number">116.5</span>
+                        <span class="number">{{ cmpCarryWeight }}</span>
                     </span>
                 </li>
             </ul>
@@ -46,6 +46,16 @@
 </template>
 
 <script>
+export default {
+    computed: {
+        cmpMaxSpeed() {
+            return this.$store.state.maxSpeed.toFixed(1)
+        },
+        cmpCarryWeight() {
+            return this.$store.state.carryWeight.toFixed(1)
+        }
+    }
+}
 </script>
 
 <style lang="scss">
