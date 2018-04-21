@@ -87,7 +87,13 @@ export default {
             }
         },
         boost(skill) {
-            console.log(skill)
+            if (skill == 'speed') {
+                this.$store.commit('INCREASE_MAX_SPEED')
+            } else if (skill == 'carry weight') {
+                this.$store.commit('INCREASE_CARRY_WEIGHT')
+            } else {
+                this.$store.commit('INCREASE_DPS')
+            }
 
             this.boostPicked = skill
         }

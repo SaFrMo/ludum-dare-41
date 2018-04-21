@@ -12,9 +12,8 @@ export default new Vuex.Store({
         triviaLocked: false,
         objective: 'Find 100 scrap.',
         dps: 1,
-
-        // player position
-        playerPosition: [0.5, 0.5]
+        playerPosition: [0.5, 0.5],
+        diary: []
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {
@@ -31,6 +30,15 @@ export default new Vuex.Store({
         },
         SET_PLAYER_Y: (state, payload) => {
             Vue.set(state.playerPosition, 1, payload)
+        },
+        INCREASE_MAX_SPEED: state => {
+            state.maxSpeed += 0.5
+        },
+        INCREASE_CARRY_WEIGHT: state => {
+            state.carryWeight += 10
+        },
+        INCREASE_DPS: state => {
+            state.dps += 1
         }
     }
 })
