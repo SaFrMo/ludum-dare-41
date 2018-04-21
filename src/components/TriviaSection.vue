@@ -4,12 +4,17 @@
 
         <h3 class="title">Authentication</h3>
 
-        <div class="question-wrap">
+        <div class="question-wrap" v-if="!$store.state.triviaLocked">
             <p class="question" v-html="cmpQuestion.question"/>
             <button
                 v-for="(answer, i) in cmpAnswers"
                 v-html="answer"
                 @click="answerClicked(answer)"/>
+        </div>
+
+        <div v-else class="lock-wrap">
+            <span class="locked">Locked</span>
+            <span class="time-left">Time Left: {{ cmpTimeLeft }}</span>
         </div>
 
     </section>
@@ -23,7 +28,9 @@ export default {
     data() {
         return {
             currentIndex: 0,
-            trivia
+            trivia,
+            timeLeft: 0,
+            interval: null
         }
     },
     methods: {
@@ -33,6 +40,19 @@ export default {
         answerClicked(answer) {
             if (this.cmpQuestion.correct_answer == answer) {
                 console.log('correct')
+            }
+
+            // set timer
+            this.$store.commit('LOCK_TRIVIA')
+            this.timeLeft = 30
+            this.interval = setInterval(this.decrementTimer, 100)
+        },
+        decrementTimer() {
+            if (this.timeLeft > 0) {
+                this.timeLeft -= 0.1
+            } else {
+                this.$store.commit('UNLOCK_TRIVIA')
+                clearInterval(this.interval)
             }
         }
     },
@@ -47,6 +67,9 @@ export default {
             ]
                 .sort()
                 .reverse()
+        },
+        cmpTimeLeft() {
+            return Math.abs(this.timeLeft).toFixed(1)
         }
     }
 }
@@ -68,6 +91,18 @@ section.trivia {
     }
     .question-wrap {
         padding: $trivia-padding;
+    }
+    .lock-wrap {
+        margin: 10px;
+
+        .locked {
+            display: block;
+            text-align: center;
+        }
+        .time-left {
+            display: block;
+            text-align: center;
+        }
     }
 }
 </style>
