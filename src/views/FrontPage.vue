@@ -1,3 +1,7 @@
 <template>
-    <h1>Ludum Dare 41</h1>
+    <main class="front-page">
+
+        <fullscreen-text/>
+
+    </main>
 </template>
