@@ -3,7 +3,7 @@
     <g class="scrap-pile" v-if="value > 0">
 
         <interaction-zone
-            @interacting="onInteract"
+            @interact="onInteract"
             :text="cmpText"
             :relativeSize="[0.2, 0.5]"
             :x="x"
@@ -64,9 +64,17 @@ export default {
     },
     methods: {
         onInteract() {
-            const delta = this.$store.state.dps * 0.1
-            this.value -= delta
-            this.$store.commit('INCREASE_LOAD', delta)
+            if (this.$store.state.currentLoad < this.$store.state.carryWeight) {
+                let delta = this.$store.state.dps * 0.1
+                delta = delta.toFixed(1)
+                this.value -= delta
+                this.$store.commit('INCREASE_LOAD', delta)
+            } else {
+                this.$store.commit(
+                    'SHOW_ERROR',
+                    'Storage full! Drop your scrap off at your home base.'
+                )
+            }
         }
     }
 }

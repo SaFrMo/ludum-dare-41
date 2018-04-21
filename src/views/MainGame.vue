@@ -8,6 +8,8 @@
             <h2 class="objective" v-if="showObjective">{{ $store.state.objective }}</h2>
         </transition>
 
+        <error-wrap v-if="$store.state.errors.length"/>
+
         <side-bar v-if="$store.state.sidebarOpened"/>
 
     </main>

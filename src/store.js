@@ -16,7 +16,9 @@ export default new Vuex.Store({
         dps: 1,
         playerPosition: [0.5, 0.5],
         diary: [],
-        daylight: balance.dayLength
+        daylight: balance.dayLength,
+        storedScrap: 0,
+        errors: ['Storage full! Drop your scrap off at your home base.']
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {
@@ -48,8 +50,21 @@ export default new Vuex.Store({
             state.daylight -= 0.5
         },
         INCREASE_LOAD: (state, payload) => {
-            state.currentLoad += payload
+            state.currentLoad += parseFloat(payload)
+            state.currentLoad = state.currentLoad.toFixed(1)
             state.currentLoad = Math.min(state.currentLoad, state.carryWeight)
+        },
+        DROP_OFF_SCRAP: state => {
+            state.storedScrap += state.currentLoad
+            state.currentLoad = 0
+        },
+        SHOW_ERROR: (state, payload) => {
+            if (!state.errors.includes(payload)) {
+                state.errors.push(payload)
+            }
+        },
+        SPLICE_ERROR: (state, payload) => {
+            state.errors.splice(payload, 1)
         }
     }
 })

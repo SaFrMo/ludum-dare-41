@@ -22,6 +22,7 @@ Vue.component(
     require('@/components/InteractionZone').default
 )
 Vue.component('scrap-holder', require('@/components/ScrapHolder').default)
+Vue.component('error-wrap', require('@/components/ErrorWrap').default)
 
 // Directives
 Vue.directive('full-height', require('fh-components/v-full-height'))

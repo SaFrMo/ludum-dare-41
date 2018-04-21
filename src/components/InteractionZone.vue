@@ -121,7 +121,7 @@ export default {
         },
         update() {
             if (this.inRange && this.interacting) {
-                this.$emit('interacting')
+                this.$emit('interact')
             }
         }
     }

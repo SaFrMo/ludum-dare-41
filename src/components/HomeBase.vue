@@ -6,7 +6,8 @@
             :x="x"
             :y="y"
             :width="width"
-            :height="height"/>
+            :height="height"
+            @interact="$store.commit('DROP_OFF_SCRAP')"/>
 
         <svg
             xmlns="http://www.w3.org/2000/svg"
