@@ -44,6 +44,10 @@ The player, in order to bypass their faulty circuits, will need to answer trivia
 1.  < 15 - clock, enemies, enemy type B
 1.  15+ - exit atmosphere
 
+## Credits
+
+**Trivia Questions**: Open Trivia Database, https://opentdb.com/
+
 ## Build Setup
 
 ```bash
