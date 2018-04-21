@@ -78,11 +78,13 @@ export default {
             // will have a magnitude greather than the defined speed.
             // This section makes the magnitude of the player's movement
             // match the defined speed.
-            const targetSpeed =
+            const angleDampen =
                 this.velocity.x != 0 && this.velocity.y != 0 ? pythInverse : 1
 
-            this.cx += this.velocity.x * 0.0025 * targetSpeed
-            this.cy += this.velocity.y * 0.0025 * targetSpeed
+            const speedDampen = 0.002
+
+            this.cx += this.velocity.x * speedDampen * angleDampen
+            this.cy += this.velocity.y * speedDampen * angleDampen
 
             requestAnimationFrame(this.update)
         }

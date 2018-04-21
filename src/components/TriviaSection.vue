@@ -9,10 +9,23 @@
             <button
                 v-for="(answer, i) in cmpAnswers"
                 v-html="answer"
+                class="answer"
                 @click="answerClicked(answer)"/>
         </div>
 
         <div v-else class="lock-wrap">
+            <div class="result" >
+                <h4 v-if="lastCorrect" class="correct heading">Correct!</h4>
+                <h4 v-else class="wrong heading">Wrong!</h4>
+
+                <div class="secondary">
+                    <p class="bonus" v-if="lastCorrect">(stat bonus)</p>
+
+                    <p>Question: <span v-html="cmpQuestion.question"/></p>
+                    <p>Answer: <span v-html="cmpQuestion.correct_answer"/></p>
+                </div>
+            </div>
+
             <span class="locked">Locked</span>
             <span class="time-left">Time Left: {{ cmpTimeLeft }}</span>
         </div>
@@ -30,7 +43,8 @@ export default {
             currentIndex: 0,
             trivia,
             timeLeft: 0,
-            interval: null
+            interval: null,
+            lastCorrect: null
         }
     },
     methods: {
@@ -39,7 +53,11 @@ export default {
         },
         answerClicked(answer) {
             if (this.cmpQuestion.correct_answer == answer) {
-                console.log('correct')
+                this.lastCorrect = true
+
+                // TODO: Award stat bonus
+            } else {
+                this.lastCorrect = false
             }
 
             // set timer
@@ -84,24 +102,57 @@ section.trivia {
     border: 2px solid $white;
     $trivia-padding: #{$desktop-padding / 2};
 
+    // title
     .title {
         margin: 0;
         padding: $trivia-padding;
         background-color: $white;
         color: $black;
     }
+
+    // question
     .question-wrap {
         padding: $trivia-padding;
     }
+
+    // answer
+    .answer {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 2px solid transparent;
+
+        &:hover,
+        &:focus {
+            border: 2px dotted;
+        }
+    }
+
+    // lock
     .lock-wrap {
-        margin: 10px;
+        .heading {
+            text-align: center;
+            margin: 0 0 10px;
+            padding: 10px;
+        }
+        .correct.heading {
+            background-color: $green;
+        }
+        .wrong.heading {
+            background-color: $red;
+        }
+        .secondary {
+            margin: 0 10px 20px;
+        }
 
         .locked {
+            margin: 0 10px 10px;
             display: block;
             text-align: center;
         }
         .time-left {
             display: block;
+            margin: 0 10px 10px;
             text-align: center;
         }
     }
