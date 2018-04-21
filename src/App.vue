@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" v-full-height.min>
         <router-view/>
     </div>
 </template>
@@ -11,7 +11,16 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-    margin: 0;
+@import 'src/styles/vars';
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+#app {
+    background-color: $black;
+    color: $white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-family: $font-family;
 }
 </style>

@@ -5,6 +5,8 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+Vue.directive('full-height', require('fh-components/v-full-height'))
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
