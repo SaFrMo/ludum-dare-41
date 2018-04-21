@@ -9,7 +9,7 @@
         <!-- <home-base/> -->
 
         <g class="map-items">
-            <scrap-pile x="0.5" y="0.5"/>
+            <scrap-pile x="0.5" y="0.3"/>
         </g>
 
         <player-character/>

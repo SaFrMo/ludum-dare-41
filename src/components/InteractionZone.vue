@@ -11,7 +11,7 @@
 
         <text
             v-if="text && inRange"
-            :x="(x  + width * 0.5) * 100 + '%'"
+            :x="cmpTextX"
             :y="(y - 0.02) * 100 + '%'">
             {{ text }}
         </text>
@@ -71,10 +71,14 @@ export default {
             // see if we're close enough to trigger interaction
             const interactZoneBottomLeft = [
                 this.x - this.width * this.relativeSize[0],
-                this.y + this.height + this.height * this.relativeSize[1]
+                parseFloat(this.y) +
+                    parseFloat(this.height) +
+                    parseFloat(this.height) * this.relativeSize[1]
             ]
             const interactZoneTopRight = [
-                this.x + this.width + this.width * this.relativeSize[0],
+                parseFloat(this.x) +
+                    parseFloat(this.width) +
+                    parseFloat(this.width) * this.relativeSize[0],
                 this.y - this.height * this.relativeSize[1]
             ]
             this.inRange = contains(
@@ -97,6 +101,11 @@ export default {
                         100 +
                     '%'
             }
+        },
+        cmpTextX() {
+            return (
+                (parseFloat(this.x) + parseFloat(this.width) * 0.5) * 100 + '%'
+            )
         }
     },
     methods: {

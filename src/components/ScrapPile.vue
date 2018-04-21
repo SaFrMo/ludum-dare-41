@@ -5,7 +5,10 @@
         <interaction-zone
             @interacting="onInteract"
             :text="cmpText"
-            :relativeSize="[0.2, 0.5]"/>
+            :relativeSize="[0.2, 0.5]"
+            :x="x"
+            :y="y"
+            />
 
         <rect
             class="item"
