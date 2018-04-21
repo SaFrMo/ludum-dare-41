@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
 @import 'src/styles/vars';
+@import 'src/styles/base';
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 #app {

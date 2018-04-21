@@ -7,6 +7,8 @@ Vue.config.productionTip = false
 
 // Components
 Vue.component('fullscreen-text', require('@/components/FullscreenText').default)
+Vue.component('side-bar', require('@/components/SideBar').default)
+Vue.component('bar-graph', require('@/components/BarGraph').default)
 
 // Directives
 Vue.directive('full-height', require('fh-components/v-full-height'))
@@ -14,6 +16,7 @@ Vue.directive('full-height', require('fh-components/v-full-height'))
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
+    store,
     router,
     render: h => h(App)
 })

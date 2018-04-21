@@ -4,6 +4,13 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state: {},
-    mutations: {}
+    state: {
+        sidebarOpened: true,
+        health: 100 // out of 100
+    },
+    mutations: {
+        TOGGLE_SIDEBAR: state => {
+            state.sidebarOpened = !state.sidebarOpened
+        }
+    }
 })
