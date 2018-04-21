@@ -47,11 +47,16 @@ The player, in order to bypass their faulty circuits, will need to answer trivia
 ### Roadmap
 
 *   Set up so player can complete first day
-*   Create shop
+*   Add damage at night
 *   Create structure for more days
+*   Create framing story
 *   Create enemies
 *   Graphics
 *   Music/SFX
+
+### Misc Tasks
+
+*   Remove error after X seconds
 
 ## Credits
 

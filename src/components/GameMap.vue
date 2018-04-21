@@ -8,6 +8,8 @@
 
         <home-base/>
 
+        <scrap-storage/>
+
         <g class="map-items">
             <scrap-pile x="0.5" y="0.3"/>
         </g>

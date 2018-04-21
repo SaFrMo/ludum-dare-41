@@ -2,12 +2,12 @@
 
     <g class="home-base">
         <interaction-zone
-            text="test"
             :x="x"
             :y="y"
             :width="width"
             :height="height"
-            @interact="$store.commit('DROP_OFF_SCRAP')"/>
+            text="[SPACE]: Rest"
+            @interact="$store.commit('START_REST')"/>
 
         <svg
             xmlns="http://www.w3.org/2000/svg"

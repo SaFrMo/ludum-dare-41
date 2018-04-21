@@ -23,6 +23,7 @@ Vue.component(
 )
 Vue.component('scrap-holder', require('@/components/ScrapHolder').default)
 Vue.component('error-wrap', require('@/components/ErrorWrap').default)
+Vue.component('scrap-storage', require('@/components/ScrapStorage').default)
 
 // Directives
 Vue.directive('full-height', require('fh-components/v-full-height'))
