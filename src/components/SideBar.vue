@@ -38,6 +38,12 @@
 
             <ul class="crit-stats">
                 <li class="row">
+                    <span class="key">Total Scrap (kg)</span>
+                    <span class="value">
+                        <span class="number">{{ $store.state.storedScrap }}</span>
+                    </span>
+                </li>
+                <li class="row">
                     <span class="key">Max Speed (m/s)</span>
                     <span class="value">
                         <span class="number">{{ cmpMaxSpeed }}</span>

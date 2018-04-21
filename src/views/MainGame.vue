@@ -12,6 +12,8 @@
 
         <side-bar v-if="$store.state.sidebarOpened"/>
 
+        <game-instructions/>
+
     </main>
 
 </template>

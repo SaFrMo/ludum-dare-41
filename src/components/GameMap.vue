@@ -15,6 +15,7 @@
                 v-for="(scrap, i) in dayMap.scrap"
                 :x="scrap.x"
                 :y="scrap.y"
+                :key="i"
                 :scrap="scrap.value"/>
         </g>
 

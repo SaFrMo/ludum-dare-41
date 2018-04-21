@@ -12,7 +12,7 @@ export default new Vuex.Store({
         carryWeight: 10,
         currentLoad: 0,
         triviaLocked: false,
-        objective: 'Find 100 scrap before daylight runs out.',
+        objective: 'Collect at least 50kg scrap before daylight runs out.',
         dps: 1,
         playerPosition: [0.5, 0.5],
         diary: [],
