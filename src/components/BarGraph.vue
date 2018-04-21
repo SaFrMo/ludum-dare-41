@@ -27,7 +27,7 @@ export default {
     },
     computed: {
         cmpWidth() {
-            return this.current / this.max * 100 + '%'
+            return Math.max(this.current / this.max * 100, 0) + '%'
         }
     }
 }
@@ -43,6 +43,7 @@ svg.bar-graph {
     }
     .amount {
         fill: $white;
+        transition: width linear 0.5s;
     }
 }
 </style>

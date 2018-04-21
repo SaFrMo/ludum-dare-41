@@ -11,19 +11,28 @@
                 <span class="label">HP</span>
             </li>
 
-            <li class="row">
+            <!-- <li class="row">
                 <bar-graph :current="40"/>
                 <span class="label">Energy</span>
+            </li> -->
+
+            <li class="row">
+                <bar-graph :current="$store.state.daylight" :max="balance.dayLength"/>
+                <span class="label">Daylight</span>
             </li>
 
         </ul>
+
+        <div class="spacer"/>
 
         <trivia-section/>
 
         <div class="spacer"/>
 
+        <h3 class="goal">{{ $store.state.objective }}</h3>
+
         <div class="criticals">
-            <h3 class="label">Criticals</h3>
+            <!-- <h3 class="label">Criticals</h3> -->
 
             <ul class="crit-stats">
                 <li class="row">
@@ -56,8 +65,14 @@
 const speedDisplayBoost = 3
 const carryWeightDisplayBoost = 1
 const laserPowerDisplayBoost = 1
+import balance from '@/utils/balance'
 
 export default {
+    data() {
+        return {
+            balance
+        }
+    },
     computed: {
         cmpMaxSpeed() {
             return (this.$store.state.maxSpeed * speedDisplayBoost).toFixed(1)
@@ -87,6 +102,7 @@ aside.sidebar {
     display: flex;
     flex-direction: column;
     background-color: $black;
+    overflow-y: auto;
 
     .day {
         background-color: $white;
@@ -106,31 +122,43 @@ aside.sidebar {
         justify-content: space-between;
         padding: 5px $desktop-padding;
 
-        &:nth-child(even) {
-            background-color: $monitor;
-        }
+        // &:nth-child(even) {
+        //     background-color: $monitor;
+        // }
 
         .bar-graph {
             height: 20px;
         }
         .label {
-            width: 100px;
+            width: 120px;
             text-align: right;
         }
     }
 
     // trivia
+    .trivia {
+        align-items: center;
+        height: fit-content;
+    }
 
     // spacer
     .spacer {
         flex: 1;
     }
 
+    // goal
+    .goal {
+        margin: $desktop-padding;
+        line-height: 1;
+        border-left: 1px dotted;
+        padding-left: $desktop-padding;
+    }
+
     // criticals
     .criticals {
         background-color: $white;
         color: $black;
-        padding: $desktop-padding;
+        padding: 0 $desktop-padding $desktop-padding;
 
         .label {
             margin: 0;

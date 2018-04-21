@@ -18,11 +18,19 @@
 export default {
     data() {
         return {
-            showObjective: true
+            showObjective: true,
+            interval: null
         }
     },
     mounted() {
-        setTimeout(() => (this.showObjective = false), 3000)
+        setTimeout(() => (this.showObjective = false), 3000),
+            (this.interval = setInterval(this.masterUpdate, 500))
+    },
+    methods: {
+        masterUpdate() {
+            // Decrease daylight
+            this.$store.commit('DECREASE_DAYLIGHT')
+        }
     }
 }
 </script>
