@@ -86,6 +86,8 @@ export default {
             this.cx += this.velocity.x * speedDampen * angleDampen
             this.cy += this.velocity.y * speedDampen * angleDampen
 
+            // calculate interaction
+
             requestAnimationFrame(this.update)
         }
     },

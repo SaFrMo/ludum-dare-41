@@ -1,6 +1,6 @@
 <template>
 
-    <g class="scrap-pile">
+    <g class="scrap-pile" v-if="value > 0">
 
         <rect
             v-if="inRange"
@@ -21,7 +21,7 @@
             v-if="inRange"
             :x="(x  + width * 0.5) * 100 + '%'"
             :y="(y - 0.02) * 100 + '%'">
-            hold [SPACE] to mine
+            [SPACE]: harvest ({{ cmpRemaining }}% remaining)
         </text>
 
     </g>
@@ -34,7 +34,10 @@ import { contains } from '@/utils'
 export default {
     data() {
         return {
-            inRange: false
+            inRange: false,
+            interval: null,
+            playerMining: false,
+            value: null
         }
     },
     props: {
@@ -63,6 +66,17 @@ export default {
             default: 20
         }
     },
+    mounted() {
+        this.value = this.scrap
+        this.interval = setInterval(this.update, 100)
+        addEventListener('keydown', this.onKeyDown)
+        addEventListener('keyup', this.onKeyUp)
+    },
+    beforeDestroy() {
+        clearInterval(this.interval)
+        removeEventListener('keydown', this.onKeyDown)
+        removeEventListener('keyup', this.onKeyUp)
+    },
     computed: {
         interactDimensions() {
             return {
@@ -75,6 +89,9 @@ export default {
                     (this.height + this.height * this.interactZone * 2) * 100 +
                     '%'
             }
+        },
+        cmpRemaining() {
+            return Math.ceil(this.value / this.scrap * 100)
         }
     },
     watch: {
@@ -93,6 +110,23 @@ export default {
                 interactZoneTopRight,
                 newVal
             )
+        }
+    },
+    methods: {
+        onKeyDown(evt) {
+            if (evt.keyCode == 32) {
+                this.playerMining = true
+            }
+        },
+        onKeyUp(evt) {
+            if (evt.keyCode == 32) {
+                this.playerMining = false
+            }
+        },
+        update() {
+            if (this.inRange && this.playerMining) {
+                this.value -= this.$store.state.dps * 0.1
+            }
         }
     }
 }

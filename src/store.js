@@ -8,9 +8,10 @@ export default new Vuex.Store({
         sidebarOpened: true,
         health: 100, // out of 100
         maxSpeed: 1,
-        carryWeight: 1,
+        carryWeight: 10,
         triviaLocked: false,
         objective: 'Find 100 scrap.',
+        dps: 1,
 
         // player position
         playerPosition: [0.5, 0.5]

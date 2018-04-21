@@ -38,6 +38,12 @@
                         <span class="number">{{ cmpCarryWeight }}</span>
                     </span>
                 </li>
+                <li class="row">
+                    <span class="key">Mining Laser (DPS)</span>
+                    <span class="value">
+                        <span class="number">{{ cmpLaserPower }}</span>
+                    </span>
+                </li>
             </ul>
         </div>
 
@@ -46,10 +52,10 @@
 </template>
 
 <script>
-// increase displayed speed so we're not just starting at 1
+// increase displayed stats so we're not just starting at 1
 const speedDisplayBoost = 3
-// ditto for carry weight
-const carryWeightDisplayBoost = 10
+const carryWeightDisplayBoost = 1
+const laserPowerDisplayBoost = 1
 
 export default {
     computed: {
@@ -60,6 +66,9 @@ export default {
             return (
                 this.$store.state.carryWeight * carryWeightDisplayBoost
             ).toFixed(1)
+        },
+        cmpLaserPower() {
+            return (this.$store.state.dps * laserPowerDisplayBoost).toFixed(1)
         }
     }
 }

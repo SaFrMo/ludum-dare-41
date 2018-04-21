@@ -25,7 +25,7 @@
                             <h5>Choose a skill to improve:</h5>
                             <button @click="boost('speed')">Speed</button>
                             <button @click="boost('carry weight')">Carry Weight</button>
-                            <button @click="boost('attack power')">Attack Power</button>
+                            <button @click="boost('attack power')">Laser Power</button>
                         </div>
 
                         <div class="boost-summary" v-else>
