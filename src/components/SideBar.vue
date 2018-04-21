@@ -70,6 +70,7 @@ aside.sidebar {
     bottom: $desktop-padding;
     display: flex;
     flex-direction: column;
+    background-color: $black;
 
     .day {
         background-color: $white;

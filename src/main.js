@@ -10,6 +10,11 @@ Vue.component('fullscreen-text', require('@/components/FullscreenText').default)
 Vue.component('side-bar', require('@/components/SideBar').default)
 Vue.component('bar-graph', require('@/components/BarGraph').default)
 Vue.component('trivia-section', require('@/components/TriviaSection').default)
+Vue.component('game-map', require('@/components/GameMap').default)
+Vue.component(
+    'player-character',
+    require('@/components/PlayerCharacter').default
+)
 
 // Directives
 Vue.directive('full-height', require('fh-components/v-full-height'))
