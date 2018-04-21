@@ -9,3 +9,8 @@
     </main>
 
 </template>
+
+<style lang="scss">
+main.main-game {
+}
+</style>

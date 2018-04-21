@@ -1,5 +1,8 @@
 @import 'src/styles/vars';
 
+body {
+    overflow: hidden;
+}
 a {
     color: $white;
 }
