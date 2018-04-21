@@ -1,0 +1,17 @@
+@import 'src/styles/vars';
+
+// reveal
+.reveal-enter {
+    clip-path: inset(0 100% 0 0);
+}
+.reveal-enter-to,
+.reveal-leave {
+    clip-path: inset(0);
+}
+.reveal-leave-to {
+    clip-path: inset(0 0 0 100%);
+}
+.reveal-enter-active,
+.reveal-leave-active {
+    transition: clip-path 1s $easing-1;
+}

@@ -46,13 +46,20 @@
 </template>
 
 <script>
+// increase displayed speed so we're not just starting at 1
+const speedDisplayBoost = 3
+// ditto for carry weight
+const carryWeightDisplayBoost = 10
+
 export default {
     computed: {
         cmpMaxSpeed() {
-            return this.$store.state.maxSpeed.toFixed(1)
+            return (this.$store.state.maxSpeed * speedDisplayBoost).toFixed(1)
         },
         cmpCarryWeight() {
-            return this.$store.state.carryWeight.toFixed(1)
+            return (
+                this.$store.state.carryWeight * carryWeightDisplayBoost
+            ).toFixed(1)
         }
     }
 }

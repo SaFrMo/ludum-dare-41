@@ -15,6 +15,7 @@ Vue.component(
     'player-character',
     require('@/components/PlayerCharacter').default
 )
+Vue.component('scrap-pile', require('@/components/ScrapPile').default)
 
 // Directives
 Vue.directive('full-height', require('fh-components/v-full-height'))

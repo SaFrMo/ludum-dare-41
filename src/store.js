@@ -7,9 +7,10 @@ export default new Vuex.Store({
     state: {
         sidebarOpened: true,
         health: 100, // out of 100
-        maxSpeed: 0,
-        carryWeight: 0,
-        triviaLocked: false
+        maxSpeed: 1,
+        carryWeight: 1,
+        triviaLocked: false,
+        objective: 'Find 100 scrap.'
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {

@@ -8,6 +8,8 @@
 
         <player-character/>
 
+        <scrap-pile/>
+
     </svg>
 
 </template>
