@@ -18,7 +18,7 @@ export default new Vuex.Store({
         diary: [],
         daylight: balance.dayLength,
         storedScrap: 0,
-        errors: ['Storage full! Drop your scrap off at your home base.']
+        errors: []
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {

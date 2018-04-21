@@ -11,7 +11,11 @@
         <scrap-storage/>
 
         <g class="map-items">
-            <scrap-pile x="0.5" y="0.3"/>
+            <scrap-pile
+                v-for="(scrap, i) in dayMap.scrap"
+                :x="scrap.x"
+                :y="scrap.y"
+                :scrap="scrap.value"/>
         </g>
 
         <player-character/>
@@ -21,6 +25,8 @@
 </template>
 
 <script>
+import days from '@/assets/days'
+
 export default {
     data() {
         return {
@@ -41,6 +47,9 @@ export default {
     computed: {
         cmpViewBox() {
             return `0 0 ${this.width} ${this.height}`
+        },
+        dayMap() {
+            return days[this.$route.params.day]
         }
     }
 }

@@ -48,6 +48,7 @@
 
 <script>
 import trivia from '@/assets/trivia'
+import balance from '@/utils/balance'
 
 export default {
     data() {
@@ -74,7 +75,7 @@ export default {
 
             // set timer
             this.$store.commit('LOCK_TRIVIA')
-            this.timeLeft = 30
+            this.timeLeft = balance.timeBetweenQuestions
             this.interval = setInterval(this.decrementTimer, 100)
         },
         decrementTimer() {
