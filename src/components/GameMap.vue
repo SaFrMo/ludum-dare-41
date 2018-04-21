@@ -6,9 +6,11 @@
         preserveAspectRatio="none"
         :view-box.camel="cmpViewBox">
 
-        <player-character/>
+        <g class="map-items">
+            <scrap-pile/>
+        </g>
 
-        <scrap-pile/>
+        <player-character/>
 
     </svg>
 

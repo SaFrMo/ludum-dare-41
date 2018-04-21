@@ -74,7 +74,7 @@ export default {
                 ? 1
                 : 0
 
-            // If the player is moving diagonally, the resultant vector
+            // If the player is moving diagonally, the resulting vector
             // will have a magnitude greather than the defined speed.
             // This section makes the magnitude of the player's movement
             // match the defined speed.
@@ -88,6 +88,14 @@ export default {
 
             requestAnimationFrame(this.update)
         }
+    },
+    watch: {
+        cx(newVal) {
+            this.$store.commit('SET_PLAYER_X', newVal)
+        },
+        cy(newVal) {
+            this.$store.commit('SET_PLAYER_Y', newVal)
+        }
     }
 }
 </script>
@@ -96,7 +104,7 @@ export default {
 @import 'src/styles/vars';
 
 circle.player-character {
-    fill: transparent;
+    fill: $black;
     stroke: $white;
     stroke-width: 2px;
 }
