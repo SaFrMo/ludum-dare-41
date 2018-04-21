@@ -51,6 +51,7 @@ export default {
             if (this.timeLeft > 0) {
                 this.timeLeft -= 0.1
             } else {
+                this.newQuestion()
                 this.$store.commit('UNLOCK_TRIVIA')
                 clearInterval(this.interval)
             }
