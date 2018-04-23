@@ -12,7 +12,7 @@
 
         <side-bar v-if="$store.state.sidebarOpened"/>
 
-        <game-instructions/>
+        <game-instructions v-if="$store.state.showInstructions"/>
 
     </main>
 

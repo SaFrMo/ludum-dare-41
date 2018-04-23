@@ -6,6 +6,12 @@ body {
 }
 a {
     color: $white;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        text-decoration-style: dashed;
+    }
 }
 button {
     appearance: none;

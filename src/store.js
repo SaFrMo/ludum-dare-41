@@ -18,7 +18,8 @@ export default new Vuex.Store({
         diary: [],
         daylight: balance.dayLength,
         storedScrap: 0,
-        errors: []
+        errors: [],
+        showInstructions: true
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {
@@ -65,6 +66,12 @@ export default new Vuex.Store({
         },
         SPLICE_ERROR: (state, payload) => {
             state.errors.splice(payload, 1)
+        },
+        SHOW_INSTRUCTIONS: (state, payload) => {
+            state.showInstructions = payload
+        },
+        SET_OBJECTIVE: (state, payload) => {
+            state.objective = payload
         }
     }
 })
