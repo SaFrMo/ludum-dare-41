@@ -46,7 +46,7 @@ The player, in order to bypass their faulty circuits, will need to answer trivia
 
 ### Roadmap
 
-*   Set up so player can complete first day
+*   Allow resting
 *   Add damage at night
 *   Create structure for more days
 *   Create framing story

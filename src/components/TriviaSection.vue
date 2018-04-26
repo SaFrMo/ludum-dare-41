@@ -2,7 +2,7 @@
 
     <section class="trivia">
 
-        <h3 class="title">Authentication</h3>
+        <h3 class="title">TRIVIA GALAXY</h3>
 
         <div class="question-wrap" v-if="!$store.state.triviaLocked">
             <p class="question" v-html="cmpQuestion.question"/>

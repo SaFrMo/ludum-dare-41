@@ -26,7 +26,7 @@
 export default {
     data() {
         return {
-            x: 0.475,
+            x: 0.575,
             y: 0.475,
             width: 0.05,
             height: 0.05

@@ -16,7 +16,7 @@
 
             <p>Your systems took some damage during the crash, and your repair hardware crossed wires with "Trivia Galaxy," a game meant to pass the time for the crew.</p>
 
-            <p>The only way you can repair your system is by scoring points in the game.</p>
+            <p>The only way you can repair your system is by getting correct answers in the game.</p>
 
             <h2 class="title">How to Play</h2>
 

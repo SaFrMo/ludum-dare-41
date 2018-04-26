@@ -19,7 +19,7 @@ export default new Vuex.Store({
         daylight: balance.dayLength,
         storedScrap: 0,
         errors: [],
-        showInstructions: true
+        showInstructions: false
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {
