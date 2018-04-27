@@ -19,7 +19,9 @@ export default new Vuex.Store({
         daylight: balance.dayLength,
         storedScrap: 0,
         errors: [],
-        showInstructions: false
+        showInstructions: true,
+        showRestDialogue: false,
+        resting: false
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {
@@ -72,6 +74,12 @@ export default new Vuex.Store({
         },
         SET_OBJECTIVE: (state, payload) => {
             state.objective = payload
+        },
+        SHOW_REST_DIALOGUE: (state, payload) => {
+            state.showRestDialogue = payload == null ? true : payload
+        },
+        START_REST: state => {
+            state.resting = true
         }
     }
 })

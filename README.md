@@ -62,6 +62,13 @@ The player, in order to bypass their faulty circuits, will need to answer trivia
 
 **Trivia Questions**: Open Trivia Database, https://opentdb.com/
 
+## Lessons Learned
+
+*   Create a Vue game boilerplate with:
+    *   Vuex
+    *   Auto-compiling `views/` and `components/` directories
+    *   SCSS
+
 ## Build Setup
 
 ```bash

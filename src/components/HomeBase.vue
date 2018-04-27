@@ -7,7 +7,7 @@
             :width="width"
             :height="height"
             text="[SPACE]: Rest"
-            @interact="$store.commit('START_REST')"/>
+            @interact="$store.commit('SHOW_REST_DIALOGUE')"/>
 
         <svg
             xmlns="http://www.w3.org/2000/svg"

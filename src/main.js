@@ -28,6 +28,7 @@ Vue.component(
     'game-instructions',
     require('@/components/GameInstructions').default
 )
+Vue.component('rest-dialogue', require('@/components/RestDialogue').default)
 
 // Directives
 Vue.directive('full-height', require('fh-components/v-full-height'))

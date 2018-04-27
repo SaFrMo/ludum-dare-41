@@ -12,6 +12,8 @@
 
         <side-bar v-if="$store.state.sidebarOpened"/>
 
+        <rest-dialogue v-if="$store.state.showRestDialogue"/>
+
         <game-instructions v-if="$store.state.showInstructions"/>
 
     </main>
